@@ -1,0 +1,720 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial;
+  box-sizing:border-box;
+}
+:root {
+
+  --white: #FFFFFF;
+  --black: #000;
+
+  /*Algeria*/
+  --algeria-green: #007A33;
+  --algeria-red: #C8102E;
+
+  /* Barain */
+  --bahrain-red: #DA291C;
+  --bahrain-white: #DA291C;
+
+  /* Comoros */
+  --comoros-green: #4C8C2B;
+  --comoros-yellow: #F3DD6D;
+  --comoros-red: #C8102E;
+  --comoros-blue:#0072CE;
+
+  /* Djibouti */
+  --djibouti-blue:#69B3E7;
+  --djibouti-green: #43B02A;
+  --djibouti-red: #EF3340;
+
+  /* Egypt */
+  --egypt-red: #C8102E;
+
+  /* Iraq */
+  --iraq-red: #CE1126;
+
+  /* Jordan */
+  --jordan-green:  #007A3D;
+  --jordan-red:  #CE1126;
+
+  /* Kuwait */
+  --kuwait-green: #007A3D;
+  --kuwait-red: #CE1126;
+
+  /* Lebanon */
+  --lebanon-red: #ED1C24;
+
+  /* Libya */
+  --libya-red: #E70013;
+  --libya-green: #239E46;
+
+  /* Mauritania */
+  --mauritania--red: #D01C1F;
+  --mauritania--green: #00A95C;
+  --mauritania--yellow: #FFD700;
+
+  /* Morocco */
+  --morocco-red: #C1272D;
+
+  /* Oman */
+  --oman-red: #C8102E;
+  --oman-green: #009A44;
+  
+  /* palestine */
+  --palestine-red: #E4312b;
+  --palestine-green: #149954;
+
+
+  /* Qatar */
+  --qatar-red: #8A1538;
+
+  /* Saudi Arabia */
+  --saudi-arabia-green: #006c35;
+
+  /* Sudan */
+  --sudan-red: #D21034;
+  --sudan-green: #007229;
+
+  /* Somalia */
+  --somalia-blue: #4189DD;
+
+  /* Syria */
+  --syria-red: #CE1126;
+  --syria-green: #007A3D;
+
+  /* Tunisia */
+  --tunisia-red: #C8102E;
+
+  /* Emirates */
+  --emirates-green: #009739;
+  --emirates-red: #EF3340;
+
+  /* Yemen */
+  --yemen-red:  #CE1126;
+
+
+  /* box shadow */
+  --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  /* Size of flags */
+  --width: 150px;
+  --height: 150px;
+
+  /* Star */
+  --star: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+main {
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-between; */
+  /* margin: 2rem 0;  */
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill , minmax(200px , 1fr));
+  grid-auto-rows: minmax(200px , 1fr);
+  place-items: center;
+}
+
+main .country {
+  width: var(--width);
+  height: var(--height);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 20px;
+}
+
+.triangle::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  border-width: calc(var(--width) / 2);
+  border-right-width: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+/* Countries */
+
+/* Algeria */
+.algeria {
+  background: linear-gradient(
+    to right,
+    var(--algeria-green) 50%,
+    var(--white) 50%
+  )
+}
+
+.algeria::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: transparent;
+  /* box-shadow: 10px 10px 0 0 var(--algeria-red); */
+  background-color: var(--algeria-red)
+
+}
+
+.algeria::after {
+  position: absolute;
+    content: "";
+    left: 35%;
+    top: 30%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(to right, var(--algeria-green) 38%, var(--white) 38%);
+}
+
+.algeria  span {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  width: 30px;
+  height: 30px;
+  clip-path: var(--star);
+  transform: translateY(-50%) rotate(90deg);
+  z-index: 1;
+  background-color: var(--algeria-red);
+}
+
+/* Bahrain */
+.bahrain {
+  background: linear-gradient(to right , var(--white) 50%, var(--bahrain-red) 50%); 
+}
+
+.bahrain::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: calc(50% - 20px);
+  width: 100%;
+  height: 100%;
+  background-color: var(--bahrain-red);
+  --mask: conic-gradient(from 45deg at left,#0000,#000 1deg 89deg,#0000 90deg) 50%/100% 40.00px;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}
+
+
+/* comoros */
+.comoros {
+  background: linear-gradient( 
+    var(--comoros-yellow) 25%,
+    var(--white) 25%,
+    var(--white) 50%,
+    var(--comoros-red) 50%,
+    var(--comoros-red) 75%,
+    var(--comoros-blue) 75%
+    );
+}
+
+.comoros.triangle::before {
+  border-left-color: var(--comoros-green);
+}
+
+.comoros::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 25%;
+  transform: translate(calc(-50% + 10px) , -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent;
+  box-shadow: -10px 0px 0 0 var(--white);
+}
+.comoros .comoros-block-of-stars {
+  width: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%) rotate(90deg);
+}
+.comoros span.star {
+  display: inline-block;
+  width: calc(40px / 4);
+  height: calc(40px / 4);
+  background-color: var(--white);
+  clip-path: var(--star);
+}
+
+/* Djibouti */
+.djibouti {
+  background: linear-gradient(
+    var(--djibouti-blue) 50%,
+    var(--djibouti-green) 50%
+  )
+}
+
+.djibouti.triangle::before {
+  border-left-color: var(--white);
+}
+
+.djibouti::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 25%;
+  transform: translate(-50% , -50%);
+  width: 25px;
+  height: 25px;
+  clip-path: var(--star);
+  background-color: var(--djibouti-red);
+}
+
+
+/* Egypt */
+
+.egypt {
+  background: linear-gradient(
+    var(--egypt-red) calc(100% / 3),
+    var(--white) calc(100% / 3),
+    var(--white) calc((100% / 3) * 2),
+    var(--black) calc((100% / 3) * 2)
+  )
+}
+
+.egypt::before {
+  position: absolute;
+  content: "";
+  width: 35px;
+  height: 35px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  background-image: url(images/egypt-flag-eagle.png);
+  background-size: 100% 100%;
+}
+
+
+/* Iraq */
+.iraq {
+  background: linear-gradient(
+    var(--iraq-red) calc(100% / 3),
+    var(--white) calc(100% / 3),
+    var(--white) calc((100% / 3) * 2),
+    var(--black) calc((100% / 3) * 2)
+  )
+}
+
+.iraq::before {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: calc((100% / 3) - 25px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  background-image: url(images/iraq-allah-akbar.png);
+  background-size: 100% 100%;
+}
+
+/* Jordan */
+
+.jordan {
+  background: linear-gradient(
+    var(--black) calc(100% / 3),
+    var(--white) calc(100% / 3),
+    var(--white) calc((100% / 3) * 2),
+    var(--jordan-green) calc((100% / 3) * 2)
+  )
+}
+
+.jordan.triangle::before {
+  border-left-color: var(--jordan-red);
+}
+
+.jordan::after {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 25%;
+  transform: translateY(-50%);
+  background-color: var(--white);
+  clip-path: polygon(35% 31%, 48% 1%, 64% 31%, 100% 20%, 82% 50%, 100% 80%, 73% 70%, 75% 100%, 50% 76%, 25% 100%, 29% 70%, 0 80%, 18% 50%, 0 20%);
+  /* clip-path: polygon(35% 30%, 48% 1%, 65% 31%, 100% 20%, 82% 50%, 100% 83%, 70% 70%, 71% 100%, 50% 76%, 31% 100%, 29% 70%, 0 80%, 18% 50%, 0 25%); */
+  /* clip-path: polygon(34% 33%, 49% 0, 67% 34%, 100% 20%, 84% 50%, 100% 72%, 76% 73%, 71% 100%, 50% 76%, 31% 100%, 25% 74%, 0 76%, 18% 49%, 0 18%); */
+
+}
+
+
+/* Kuwait */
+.kuwait {
+  background: linear-gradient(
+    var(--kuwait-green) calc(100% / 3),
+    var(--white) calc(100% / 3),
+    var(--white) calc((100% / 3) * 2),
+    var(--kuwait-red) calc((100% / 3) * 2)
+  )
+}
+.kuwait::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: calc( var(--width) / 2);
+  height: 100%;
+  background-color: var(--black);
+  clip-path: 
+  polygon(
+    0 0, 
+    100% calc(100% / 3), 
+    100% calc( (100% / 3) * 2), 
+    0% 100%
+    );
+
+}
+
+/* Lebanon */
+.lebanon {
+  background: linear-gradient(
+    var(--lebanon-red) calc(100% / 3),
+    var(--white) calc(100% / 3),
+    var(--white) calc((100% / 3) * 2),
+    var(--lebanon-red) calc((100% / 3) * 2)
+  )
+}
+
+.lebanon::before {
+  position: absolute;
+  content: "";
+  width: calc((100% / 3));
+  height: calc((100% / 3));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  background-image: url(images/Flag_of_Lebanon_\(tree\).png);
+  background-size: 100% 100%;
+}
+
+/* Libya */
+
+.libya {
+  background: linear-gradient(
+    var(--libya-red) calc(100% / 3),
+    var(--black) calc(100% / 3),
+    var(--black) calc((100% / 3) * 2),
+    var(--libya-green) calc((100% / 3) * 2)
+  )
+}
+
+.libya::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: -3.5px 0 0px 2.5px var(--white);
+}
+
+.libya::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(5px, -50%) rotate(46deg);
+  width: 20px;
+  height: 20px;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background-color: var(--white);
+}
+
+
+/* Mauritania */
+.mauritania {
+  background: linear-gradient(
+    var(--mauritania--red) 25%,
+    var(--mauritania--green) 25%,
+    var(--mauritania--green) 75%,
+    var(--mauritania--red) 75%
+  )
+}
+
+.mauritania::before {
+  position: absolute;
+  content: "";
+  top: calc(50% - 20px);
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 90px;
+  height: 60px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0px 9px 0px -1px var(--mauritania--yellow);
+}
+
+.mauritania::after {
+  position: absolute;
+  content: "";
+  top: calc(50% - 10px);
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 35px;
+  height: 35px;
+  background-color: var(--mauritania--yellow);
+  clip-path: var(--star);
+}
+
+/* Morocco */
+
+.morocco {
+  background-color: var(--morocco-red);
+}
+
+.morocco::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 50px;
+  height: 50px;
+  background-image: url(images/Star_of_Morocco.svg.png);
+  background-size: cover;
+}
+
+/* Oman */
+
+.oman {
+  background: linear-gradient(
+    var(--white) calc(100% / 3),
+    var(--oman-red) calc(100% / 3),
+    var(--oman-red) calc((100% / 3) * 2),
+    var(--oman-green) calc((100% / 3) * 2)
+  )
+}
+
+.oman::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  background-color: var(--oman-red);
+}
+
+.oman::after {
+  --size-of-slogan: 25px;
+
+  position: absolute;
+  content: "";
+  top: calc( calc(100% / 3) - var(--size-of-slogan));
+  left: calc(25% - var(--size-of-slogan) - 5px);
+  width: var(--size-of-slogan);
+  height: var(--size-of-slogan);
+  background-image: url(images/National_emblem_of_Oman.svg.png);
+  background-size: cover;
+}
+
+/* Palestine */
+.palestine {
+  background: linear-gradient(
+    var(--black) calc(100% / 3),
+    var(--white) calc(100% / 3),
+    var(--white) calc((100% / 3) * 2),
+    var(--palestine-green) calc((100% / 3) * 2)
+  )
+}
+
+.palestine.triangle::before {
+  border-left-color: var(--palestine-red);
+}
+
+/* Qatar */
+.qatar {
+  background: linear-gradient(
+    to right, 
+    var(--white) 50%, 
+    var(--qatar-red) 50%
+    )
+}
+
+.qatar::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: calc( 50% - 20px);
+  width: 100%;
+  height: 100%;
+  background-color: var(--qatar-red);
+  --mask: conic-gradient(from 57.5deg at left,#0000,#000 1deg 64deg,#0000 65deg) 50%/100% 25.48px;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}
+
+
+/* Saudi Arabia */
+.country.saudi-arabia {
+  background-color: var(--saudi-arabia-green);
+}
+
+.saudi-arabia::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  transform: translate(-50% , -50%);
+  background-image: url(images/saudi-arabia.png);
+  background-size: 100% 100%;
+}
+
+
+/* Sudan */
+.sudan {
+  background: linear-gradient(
+    var(--sudan-red) calc(100% / 3),
+    var(--white) calc(100% / 3),
+    var(--white) calc((100% / 3) * 2),
+    var(--black) calc((100% / 3) * 2)
+  )
+}
+
+.sudan::before {
+  border-left-color: var(--sudan-green);
+}
+
+/* Somalia */
+
+.somalia {
+  background-color: var(--somalia-blue);
+}
+
+.somalia::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background-color: var(--white);
+  clip-path: var(--star);
+}
+
+/* Syria */
+.syria {
+  background: linear-gradient(
+    var(--syria-red) calc(100% / 3),
+    var(--white) calc(100% / 3),
+    var(--white) calc((100% / 3) * 2),
+    var(--black) calc((100% / 3) * 2)
+  )
+}
+
+.syria::before,
+.syria::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: var(--syria-green);
+  clip-path: var(--star);
+  transform: translateY(-50%);
+}
+
+.syria::before {
+  left: 25%;
+}
+
+.syria::after {
+  right: 25%;
+}
+
+/* Tunisia */
+
+.tunisia {
+  background-color: var(--tunisia-red);
+}
+
+.tunisia::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 90px;
+  height: 90px;
+  background-color: var(--white);
+  border-radius: 50%;
+}
+
+.tunisia::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate( -20px, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--white);
+  box-shadow: -9px 0 0 6px var(--tunisia-red);
+}
+
+.tunisia > span.star {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--tunisia-red);
+  clip-path: var(--star);
+  top: 50%;
+  left: calc(50% - 10px);
+  transform: translateY(-50%) rotate(45deg);
+  position: absolute;
+  z-index: 1
+}
+
+
+/* Emarites */
+
+.emirates {
+  background: linear-gradient(
+    var(--emirates-green) calc(100% / 3),
+    var(--white) calc(100% / 3),
+    var(--white) calc((100% / 3) * 2),
+    var(--black) calc((100% / 3) * 2)
+  )
+}
+
+.emirates::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  background-color: var(--emirates-red);
+}
+
+/* Yemen */
+.yemen {
+  background: linear-gradient(
+    var(--yemen-red) calc(100% / 3),
+    var(--white) calc(100% / 3),
+    var(--white) calc((100% / 3) * 2),
+    var(--black) calc((100% / 3) * 2)
+  )
+}
